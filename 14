@@ -1,0 +1,100 @@
+index.html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Для Вики ❤️</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffc3d1, #ffe6eb);
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+h1 {
+    color: #ff4d6d;
+}
+
+p {
+    font-size: 20px;
+    color: #444;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.yes {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+.no {
+    background-color: white;
+    color: #ff4d6d;
+    position: relative;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Небольшой тест для Вики 💌</h1>
+    <p>Ответь честно…</p>
+    <button onclick="showMessage()">Начать</button>
+
+    <div id="message" class="hidden">
+        <p>Есть один человек…</p>
+        <p>С которым мне особенно приятно общаться.</p>
+        <p>С которым я улыбаюсь чаще.</p>
+        <p>И почему-то этот человек — ты, Вика 😊</p>
+
+        <h2>Будешь моей Валентинкой? 💘</h2>
+        <button class="yes" onclick="yesAnswer()">Да</button>
+        <button class="no" onmouseover="moveButton(this)">Нет</button>
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById("message").classList.remove("hidden");
+}
+
+function moveButton(button) {
+    button.style.position = "absolute";
+    button.style.top = Math.random() * window.innerHeight + "px";
+    button.style.left = Math.random() * window.innerWidth + "px";
+}
+
+function yesAnswer() {
+    document.body.innerHTML = `
+    <div style="margin-top:150px; text-align:center;">
+        <h1 style="color:#ff4d6d;">Ты сделала меня счастливым 😊💖</h1>
+        <p style="font-size:22px;">Спасибо, Вика ❤️</p>
+    </div>
+    `;
+}
+</script>
+
+</body>
+</html>

@@ -4,18 +4,18 @@ index.html
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Для Вики ❤️</title>
+<title>Тест для Вики</title>
+
 <style>
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ffc3d1, #ffe6eb);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6de, #fff0f3);
     text-align: center;
-    overflow: hidden;
 }
 
 .container {
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 h1 {
@@ -23,77 +23,88 @@ h1 {
 }
 
 p {
-    font-size: 20px;
-    color: #444;
+    font-size: 22px;
+    color: #333;
+    min-height: 60px;
 }
 
 button {
-    padding: 12px 25px;
+    padding: 12px 28px;
     font-size: 18px;
     border-radius: 25px;
     border: none;
     cursor: pointer;
-    margin: 10px;
-    transition: 0.3s;
-}
-
-.yes {
-    background-color: #ff4d6d;
+    margin-top: 25px;
+    background: #ff4d6d;
     color: white;
-}
-
-.no {
-    background-color: white;
-    color: #ff4d6d;
-    position: relative;
+    transition: 0.25s;
 }
 
 button:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .hidden {
     display: none;
+}
+
+#choices button {
+    margin: 10px;
+    background: white;
+    color: #ff4d6d;
+    border: 2px solid #ff4d6d;
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Небольшой тест для Вики 💌</h1>
-    <p>Ответь честно…</p>
-    <button onclick="showMessage()">Начать</button>
+    <h1>Небольшой тест для Вики</h1>
+    <p id="text">Ответь очень честно</p>
+    <button id="nextBtn" onclick="nextStep()">Начать</button>
 
-    <div id="message" class="hidden">
-        <p>Есть один человек…</p>
-        <p>С которым мне особенно приятно общаться.</p>
-        <p>С которым я улыбаюсь чаще.</p>
-        <p>И почему-то этот человек — ты, Вика 😊</p>
-
-        <h2>Будешь моей Валентинкой? 💘</h2>
-        <button class="yes" onclick="yesAnswer()">Да</button>
-        <button class="no" onmouseover="moveButton(this)">Нет</button>
+    <div id="choices" class="hidden">
+        <button onclick="yes()">Да</button>
+        <button onclick="no()">Нет</button>
     </div>
 </div>
 
 <script>
-function showMessage() {
-    document.getElementById("message").classList.remove("hidden");
+let step = 0;
+
+const phrases = [
+"Есть один человек",
+"С которым мне приятно общаться",
+"С которым я улыбаюсь чаще всего",
+"И этот человек — ты, Вик",
+"Будешь моей Валентинкой?"
+];
+
+function nextStep() {
+    step++;
+
+    if(step <= phrases.length){
+        document.getElementById("text").innerText = phrases[step-1];
+    }
+
+    if(step === phrases.length){
+        document.getElementById("nextBtn").classList.add("hidden");
+        document.getElementById("choices").classList.remove("hidden");
+    }
 }
 
-function moveButton(button) {
-    button.style.position = "absolute";
-    button.style.top = Math.random() * window.innerHeight + "px";
-    button.style.left = Math.random() * window.innerWidth + "px";
-}
-
-function yesAnswer() {
+function yes(){
     document.body.innerHTML = `
-    <div style="margin-top:150px; text-align:center;">
-        <h1 style="color:#ff4d6d;">Ты сделала меня счастливым 😊💖</h1>
-        <p style="font-size:22px;">Спасибо, Вика ❤️</p>
+    <div style="margin-top:150px;text-align:center;">
+        <h1 style="color:#ff4d6d;">Ты сделала меня счастливым</h1>
+        <p style="font-size:24px;">Спасибо, Вик</p>
+        <p style="font-size:20px;color:#555;">Спасибо, Вика, я очень рад, что ты есть</p>
     </div>
     `;
+}
+
+function no(){
+    alert("Тут можно только да 😌");
 }
 </script>
 

@@ -95,7 +95,7 @@ function nextStep() {
 function yes(){
     document.body.innerHTML = `
     <div style="margin-top:120px;text-align:center;">
-        <img src="vika.jpg" style="width:250px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+        <img src="xmShPgG3btwFR4vvdSpoZqya6KSPRwhtCcmAzERxY6t2XF-uc0M9ZQl187nxZd-_0T0YfGmU83ooEuEHNkG1Hd1C.jpg" style="width:250px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.2);">
 
         <h1 style="color:#ff4d6d;">Ты сделала меня счастливым</h1>
         <p style="font-size:24px;">Спасибо, Вик</p>
